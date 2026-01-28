@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prof. Dr. Muhammad Umar, SI, HI - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a4d2e;
+            --secondary-color: #2d6a4f;
+            --accent-color: #95b46a;
+            --gold: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #fafaf8;
+            --bg-white: #ffffff;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .awards-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .award-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero .title {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 1.1s both;
+        }
+
+        .credential-badge {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            color: white;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .credential-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 1.3s both;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 2rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .about-image {
+            position: relative;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, transparent 100%);
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .about-text {
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 8rem;
+            opacity: 0.1;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .highlight-box p {
+            color: white;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--primary-color);
+            color: white;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 0.5rem;
+            counter-reset: number;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Awards Grid */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--accent-color) 100%);
+        }
+
+        .award-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .award-icon-large {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, #f4d03f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .award-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .award-card .year {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .award-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--primary-color) 100%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            width: 45%;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .timeline-date {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline-content h4 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* Publications Section */
+        .publications-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .publications-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .publication-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .publication-item .year {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .publication-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .publication-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .publication-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            list-style: none;
+            color: var(--text-light);
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-light);
+        }
+
+        .contact-details a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent-color);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 50px;
+            }
+
+            .timeline-date {
+                left: 20px;
+                transform: translateX(0);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .credentials {
+                flex-direction: column;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .page-loader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top-color: var(--gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            background: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Loading Excellence...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Prof. M. Umar</div>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#career">Career</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="awards-badge">
+                <div class="award-icon">🏆</div>
+                <span>Hilal-i-Imtiaz & Sitara-i-Imtiaz</span>
+            </div>
+            <h1>Prof. Dr. Muhammad Umar</h1>
+            <p class="subtitle">Vice Chancellor, Rawalpindi Medical University</p>
+            <p class="title">Distinguished Gastroenterologist & Hepatologist</p>
+            
+            <div class="credentials">
+                <span class="credential-badge">MBBS</span>
+                <span class="credential-badge">FCPS</span>
+                <span class="credential-badge">FRCP (London)</span>
+                <span class="credential-badge">FRCP (Glasgow)</span>
+                <span class="credential-badge">FACG</span>
+                <span class="credential-badge">AGAF</span>
+                <span class="credential-badge">FASGE</span>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#about" class="btn btn-primary">Discover More</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <div class="stats">
+        <div class="stats-grid">
+            <div class="stat-item reveal">
+                <div class="stat-number">40+</div>
+                <div class="stat-label">Years of Service</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">200+</div>
+                <div class="stat-label">Research Publications</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Books Authored</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">International Lectures</div>
+            </div>
+            <div class="stat-item reveal">
+                <div class="stat-number">13</div>
+                <div class="stat-label">PhD Programs Initiated</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header reveal">
+            <h2>A Legacy of Excellence</h2>
+            <p>Four decades of transformative leadership in medical education and healthcare</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-image reveal">
+                <div class="image-wrapper">
+                    <svg width="100%" height="500" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="100%" height="100%" fill="var(--primary-color)" opacity="0.1"/>
+                        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" fill="var(--primary-color)" font-size="120" font-family="Cormorant Garamond" font-weight="700" opacity="0.3">MU</text>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="about-text reveal">
+                <h3>A 40-Year Journey of Excellence</h3>
+                <p>Prof. Dr. Muhammad Umar stands as a pioneering figure in Pakistan's medical education landscape. As the inaugural Rawalian Principal of Rawalpindi Medical College and the founding Vice Chancellor of Rawalpindi Medical University, he has dedicated his career to advancing medical education and healthcare delivery.</p>
+
+                <div class="highlight-box">
+                    <p>"In a testament to dedication and national commitment, Prof. Umar has served as Vice Chancellor since 2017 without accepting any pay, allowances, privileges, or official car from the Government of Punjab and HEC - a service entirely voluntary and exemplifying true leadership."</p>
+                </div>
+
+                <p>His remarkable journey began as a distinguished graduate of the second batch of Rawalpindi Medical College in 1981, where he graduated with distinction and received multiple academic awards. Throughout his career, Dr. Umar achieved numerous milestones, becoming the first Rawalian FCPS, Assistant Professor, Professor, and ultimately Principal at RMC.</p>
+
+                <p>Under his visionary leadership, Rawalpindi Medical University achieved remarkable recognition, being ranked as the top Medical University in Pakistan by Times Higher Education (THE) Impact Rankings in 2021 and 2023. The undergraduate MBBS program rose from 6th to 1st position in merit rankings within just three years.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <div class="section-header reveal">
+            <h2>National Honors & Recognition</h2>
+            <p>Celebrating excellence in medical service and leadership</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card reveal">
+                <div class="award-icon-large">🏅</div>
+                <span class="year">2024</span>
+                <h3>Hilal-i-Imtiaz</h3>
+                <p>Conferred by His Excellency President Asif Ali Zardari for distinguished medical services and outstanding contributions to healthcare in Pakistan.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">⭐</div>
+                <span class="year">2015</span>
+                <h3>Sitara-i-Imtiaz</h3>
+                <p>Awarded by His Excellency President Mamnoon Hussain for exceptional contributions to patient care and leadership in liver and gastrointestinal diseases.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🏆</div>
+                <span class="year">2021</span>
+                <h3>Punjab Governor Award</h3>
+                <p>Recognized for extraordinary performance as Vice Chancellor of Rawalpindi Medical University during challenging times.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🌟</div>
+                <span class="year">2010</span>
+                <h3>ACG Governor Award</h3>
+                <p>Best Services Governor Award by the American College of Gastroenterology for exceptional contributions to the field.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">📚</div>
+                <span class="year">2012</span>
+                <h3>HEC & PMDC Best Professional Award</h3>
+                <p>Awarded for outstanding professional and educational services in advancing medical education standards.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🔬</div>
+                <span class="year">Multiple Years</span>
+                <h3>Sarwar Zuberi Research Award</h3>
+                <p>Presented by Pakistan Society of Gastroenterology for groundbreaking research in Hepatology.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section id="career">
+        <div class="section-header reveal">
+            <h2>Distinguished Career Journey</h2>
+            <p>Four decades of progressive leadership and clinical excellence</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-date">2017 - Present</div>
+                <div class="timeline-content">
+                    <h3>Vice Chancellor</h3>
+                    <h4>Rawalpindi Medical University</h4>
+                    <p>Founding Vice Chancellor transforming RMU into Pakistan's top-ranked medical university. Leading innovative curriculum reforms, research initiatives, and international collaborations.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">2013 - 2017</div>
+                <div class="timeline-content">
+                    <h3>Principal</h3>
+                    <h4>Rawalpindi Medical College</h4>
+                    <p>First Rawalian Principal, revolutionizing medical education through curriculum innovation and infrastructure development across three teaching hospitals.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">2003 - 2017</div>
+                <div class="timeline-content">
+                    <h3>Professor of Medicine & Chief</h3>
+                    <h4>Gastroenterology and Hepatology Division</h4>
+                    <p>Established first GI & Liver Clinic, pioneered advanced endoscopic procedures including ERCP, EUS, and RFA in Northern Pakistan.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">1993 - 2003</div>
+                <div class="timeline-content">
+                    <h3>Associate Professor of Medicine</h3>
+                    <h4>Rawalpindi Medical College</h4>
+                    <p>Advanced therapeutic endoscopy services, conducted pioneering research on Hepatitis B and C, established Rawalian Research Forum.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">1986 - 1993</div>
+                <div class="timeline-content">
+                    <h3>Assistant Professor of Medicine</h3>
+                    <h4>Rawalpindi Medical College</h4>
+                    <p>First Rawalian to achieve Assistant Professor position, developed expertise in gastroenterology and hepatology.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item reveal">
+                <div class="timeline-date">1981</div>
+                <div class="timeline-content">
+                    <h3>MBBS with Distinction</h3>
+                    <h4>Rawalpindi Medical College</h4>
+                    <p>Best Graduate among male students, First Position in 2nd and 3rd Professional MBBS, President Gold Medal recipient.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Achievements -->
+    <section id="leadership" style="background: var(--bg-white);">
+        <div class="section-header reveal">
+            <h2>Transformational Leadership at RMU</h2>
+            <p>Pioneering initiatives that redefined medical education in Pakistan</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card reveal">
+                <div class="award-icon-large">🏛️</div>
+                <h3>Infrastructure Development</h3>
+                <p>Established modern university campus with Secretariat, R&D Department (Rs. 200M), renovated hostels (Rs. 100M), and executed 10 ADP schemes worth Rs. 5 billion.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">💰</div>
+                <h3>Financial Achievements</h3>
+                <p>Secured Rs. 1.7 billion PSDP funding for Post-graduate Research Lab Complex, Rs. 210M for Nursing Institute, and Rs. 300M for new hostels.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">📖</div>
+                <h3>Curriculum Innovation</h3>
+                <p>Implemented Integrated Modular Curriculum aligned with PMDC, WFME, and ACGME standards. Designed Competency-based Residency Program.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🔬</div>
+                <h3>Research Excellence</h3>
+                <p>Established ORIC, state-of-art Simulation Lab (Rs. 550M), published 200+ research papers, and introduced AI integration in research.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">💻</div>
+                <h3>Digital Transformation</h3>
+                <p>Launched first LMS-based assessment model in public sector, established smart classrooms, digital library, and global e-learning collaborations.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🏥</div>
+                <h3>Patient Care Enhancement</h3>
+                <p>Established 12 new departments including Gastroenterology, Nephrology, Critical Care Medicine, significantly improving healthcare delivery.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">👥</div>
+                <h3>Human Resource Development</h3>
+                <p>Created 36 new faculty positions, 100 Senior Registrar posts, hired 10 PhD scholars, enhancing teaching and healthcare systems.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🌍</div>
+                <h3>Global Collaborations</h3>
+                <p>Partnerships with University of York, Harvard, Cornell, University of Minnesota. Collaborated with WHO, UNICEF, UNDP on projects worth Rs. 500M.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🌱</div>
+                <h3>Sustainability Initiatives</h3>
+                <p>Solarized entire campus, implemented water conservation and rain harvesting, launched Clean & Green Initiative with Pakistan's first Journal of Climate Change and Health.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="section-header reveal">
+            <h2>Research & Publications</h2>
+            <p>Over 200 research papers, 7 books, and numerous international contributions</p>
+        </div>
+
+        <div class="publications-filter reveal">
+            <button class="filter-btn active" data-filter="all">All Publications</button>
+            <button class="filter-btn" data-filter="international">International</button>
+            <button class="filter-btn" data-filter="national">National</button>
+            <button class="filter-btn" data-filter="books">Books</button>
+        </div>
+
+        <div class="publications-list">
+            <div class="publication-item reveal" data-category="books">
+                <div class="year">📚 BOOKS</div>
+                <h4>Major Publications</h4>
+                <p><strong>1. Basic Skills in Gastrointestinal Endoscopy (2008)</strong> - Comprehensive guide for endoscopy procedures<br>
+                <strong>2. Hepatitis C in Pakistan (2006)</strong> - Landmark book on HCV management<br>
+                <strong>3. Therapeutic Endoscopy Book (2022)</strong> - Advanced therapeutic techniques<br>
+                <strong>4. Medical Emergencies Management Guidelines</strong> - Essential clinical reference<br>
+                <strong>5. Urdu Book: Hepatitis A, B, C for Patient Education (1998)</strong> - Public awareness initiative<br>
+                <strong>6. Diagnosis and Management of Hepatitis C (2000)</strong> - Evidence-based approach<br>
+                <strong>7. Course Syllabus - Advanced Course Endoscopy, ERCP, EUS and RFA (2012)</strong></p>
+            </div>
+
+            <div class="publication-item reveal" data-category="international">
+                <div class="year">2024</div>
+                <h4>World Gastroenterology Organisation Global Guidelines</h4>
+                <p>Chairman of WGO Hepatitis C Treatment Guidelines Committee. Published comprehensive guidelines for diagnosis, management and prevention of hepatitis C adopted globally.</p>
+                <a href="#" class="publication-link">View Publication →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="international">
+                <div class="year">2020</div>
+                <h4>Effects of tranexamic acid on death and thromboembolic events in acute gastrointestinal bleeding</h4>
+                <p>HALT-IT Trial: International randomised, double-blind, placebo-controlled trial published in The Lancet. Major contribution to emergency GI care.</p>
+                <a href="#" class="publication-link">View in The Lancet →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="national">
+                <div class="year">2016</div>
+                <h4>Hepatitis C virus prevalence and genotype distribution in Pakistan</h4>
+                <p>Comprehensive review published in World Journal of Gastroenterology providing critical epidemiological data for HCV in Pakistan.</p>
+                <a href="#" class="publication-link">View Publication →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="national">
+                <div class="year">2020-2021</div>
+                <h4>COVID-19 Research Series</h4>
+                <p>Multiple publications on COVID-19 management at RMU Allied Hospitals including telemedicine services, psychological impact on healthcare workers, and clinical outcomes. Published in various journals including PLOS ONE.</p>
+                <a href="#" class="publication-link">View Publications →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="international">
+                <div class="year">2014</div>
+                <h4>Safety of non-anaesthesiologist-administered propofol sedation in ERCP</h4>
+                <p>Published in Arab Journal of Gastroenterology, establishing safety protocols for ERCP procedures in resource-limited settings.</p>
+                <a href="#" class="publication-link">View Publication →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="international">
+                <div class="year">2012</div>
+                <h4>Extent of liver inflammation in predicting response to interferon and Ribavirin</h4>
+                <p>Cohort study published in BMC Gastroenterology providing insights into treatment response predictors for chronic hepatitis C.</p>
+                <a href="#" class="publication-link">View Publication →</a>
+            </div>
+
+            <div class="publication-item reveal" data-category="national">
+                <div class="year">2010</div>
+                <h4>Hepatitis C in Pakistan: A review of available data</h4>
+                <p>Published in Hepatitis Monthly, comprehensive review of HCV epidemiology, risk factors, and treatment outcomes in Pakistan.</p>
+                <a href="#" class="publication-link">View Publication →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" style="background: var(--bg-white);">
+        <div class="section-header reveal">
+            <h2>Areas of Expertise</h2>
+            <p>Comprehensive skills in clinical care, research, and medical education</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card reveal">
+                <div class="skill-icon">🔬</div>
+                <h3>Gastroenterology & Hepatology</h3>
+                <ul class="skill-list">
+                    <li>Advanced Therapeutic Endoscopy</li>
+                    <li>ERCP & EUS Procedures</li>
+                    <li>Hepatitis B & C Management</li>
+                    <li>Liver Transplantation</li>
+                    <li>Portal Hypertension</li>
+                    <li>Hepatocellular Carcinoma</li>
+                </ul>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🏥</div>
+                <h3>Clinical Excellence</h3>
+                <ul class="skill-list">
+                    <li>35+ Years Clinical Experience</li>
+                    <li>General Medicine</li>
+                    <li>Critical Care Management</li>
+                    <li>Emergency Medicine</li>
+                    <li>Interventional Procedures</li>
+                    <li>Patient Care Leadership</li>
+                </ul>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">📚</div>
+                <h3>Medical Education</h3>
+                <ul class="skill-list">
+                    <li>Curriculum Development</li>
+                    <li>Competency-Based Education</li>
+                    <li>Faculty Development</li>
+                    <li>Residency Program Design</li>
+                    <li>Assessment Innovation</li>
+                    <li>E-Learning Implementation</li>
+                </ul>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">💼</div>
+                <h3>Leadership & Administration</h3>
+                <ul class="skill-list">
+                    <li>University Management</li>
+                    <li>Strategic Planning</li>
+                    <li>Financial Management</li>
+                    <li>Human Resource Development</li>
+                    <li>Quality Assurance</li>
+                    <li>Stakeholder Engagement</li>
+                </ul>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">🌍</div>
+                <h3>International Collaboration</h3>
+                <ul class="skill-list">
+                    <li>WGO Guideline Development</li>
+                    <li>ACG Governor for Pakistan</li>
+                    <li>APASL Leadership</li>
+                    <li>International Faculty</li>
+                    <li>Global Partnership Building</li>
+                    <li>Cross-Cultural Exchange</li>
+                </ul>
+            </div>
+
+            <div class="skill-card reveal">
+                <div class="skill-icon">📊</div>
+                <h3>Research & Innovation</h3>
+                <ul class="skill-list">
+                    <li>Clinical Research Design</li>
+                    <li>Publication Excellence</li>
+                    <li>Grant Management</li>
+                    <li>Research Mentorship</li>
+                    <li>Innovation Integration</li>
+                    <li>Evidence-Based Practice</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Recognition -->
+    <section id="international">
+        <div class="section-header reveal">
+            <h2>International Recognition</h2>
+            <p>Global leadership in gastroenterology and medical education</p>
+        </div>
+
+        <div class="awards-grid">
+            <div class="award-card reveal">
+                <div class="award-icon-large">🌐</div>
+                <h3>World Gastroenterology Organisation</h3>
+                <p><strong>Chairman, Hepatitis C Treatment Guidelines Committee (2013-Present)</strong><br>Leading global efforts in standardizing HCV management protocols worldwide.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🇺🇸</div>
+                <h3>American College of Gastroenterology</h3>
+                <p><strong>First Governor for Pakistan (2006-2011)</strong><br>Fellow (FACG) and recipient of Best Services Governor Award 2010.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🏴󠁧󠁢󠁳󠁣󠁴󠁿</div>
+                <h3>Royal Colleges Fellowship</h3>
+                <p><strong>FRCP (London) & FRCP (Glasgow) - 2006</strong><br>International Advisor to Royal College of Physicians Glasgow (2016).</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🌏</div>
+                <h3>Asian Pacific Association</h3>
+                <p><strong>Chairman ASIAHEP Pakistan (2006-2010)</strong><br>Councilor of APDW, faculty member at multiple APASL and APDW conferences.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">🎓</div>
+                <h3>International Observerships</h3>
+                <p>Training at prestigious institutions: King's College London, Cornell, Johns Hopkins, Harvard's Brigham & Women's Hospital, Massachusetts General Hospital.</p>
+            </div>
+
+            <div class="award-card reveal">
+                <div class="award-icon-large">📰</div>
+                <h3>Editorial Leadership</h3>
+                <p>Member of editorial boards: GIE (USA), Liver International (Germany), Endoscopy Ultrasound Journal, multiple national and international journals.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Service -->
+    <section id="community" style="background: var(--bg-white);">
+        <div class="section-header reveal">
+            <h2>Community Service & Outreach</h2>
+            <p>Committed to serving communities beyond hospital walls</p>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text reveal">
+                <h3>Flood Relief Programs</h3>
+                <p><strong>2010 Floods:</strong> As Chairman of Rawalian's Flood Relief Committee, renovated flood-affected DHQ Hospital Nowshera (Rs. 4 million), established Rawalians Homes in Daryabad (US$ 200,000 in collaboration with RMCAANA).</p>
+
+                <p><strong>2022 Floods:</strong> Led RMU Flood Relief Committee collecting Rs. 10 million in donations. Organized medical camps across all four provinces (Punjab, Sindh, KPK, Balochistan) with 120 doctors and nurses treating 13,000 patients and distributing ration and medicines. Appointed as coordinator of Flood Relief Program for all Medical Universities by HEC.</p>
+
+                <p><strong>2025 Floods:</strong> Coordinated flood relief camps in KPK and Punjab, treating thousands of patients in Kasur, Jhang, Buner, and other affected areas.</p>
+            </div>
+
+            <div class="about-text reveal">
+                <h3>Public Health Initiatives</h3>
+                <ul class="skill-list">
+                    <li><strong>Hepatitis Awareness Campaigns:</strong> Annual World Hepatitis Day programs since 1998, free Hepatitis B vaccination for hospital staff</li>
+                    <li><strong>COVID-19 Response:</strong> Led RMU's comprehensive COVID response including telemedicine services, testing, treatment, and vaccination programs</li>
+                    <li><strong>Dengue Management:</strong> Established protocols and awareness programs for dengue prevention and treatment</li>
+                    <li><strong>Obesity & Diabetes Initiative:</strong> Obesity and Diabetes Mellitus Free Rawalpindi City Initiative (Union Councils 10-15)</li>
+                    <li><strong>Rural Health Programs:</strong> Ghulam Rasool Memorial Rural Health & Community Education Program in Head Marala, Sialkot (1995-2001)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header reveal">
+            <h2>Get in Touch</h2>
+            <p>Connect for collaborations, consultations, or academic inquiries</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item reveal">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <p><a href="mailto:drumarpk@yahoo.com">drumarpk@yahoo.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item reveal">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <p><a href="tel:+923335118283">0333-5118283</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item reveal">
+                    <div class="contact-icon">🌐</div>
+                    <div class="contact-details">
+                        <h4>Website</h4>
+                        <p><a href="http://www.drumarpk.com" target="_blank">www.drumarpk.com</a></p>
+                    </div>
+                </div>
+
+                <div class="contact-item reveal">
+                    <div class="contact-icon">🏢</div>
+                    <div class="contact-details">
+                        <h4>Office Address</h4>
+                        <p>Vice Chancellor Office<br>Rawalpindi Medical University<br>Tipu Road, Rawalpindi, Pakistan</p>
+                    </div>
+                </div>
+
+                <div class="contact-item reveal">
+                    <div class="contact-icon">🏠</div>
+                    <div class="contact-details">
+                        <h4>Residential Address</h4>
+                        <p>359-D, Street 27<br>I-8/2, Islamabad<br>Pakistan</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form reveal">
+                <h3>Send a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Prof. Dr. Muhammad Umar</h3>
+                <p>Vice Chancellor, Rawalpindi Medical University</p>
+                <p>Distinguished Gastroenterologist & Hepatologist</p>
+                <p>Hilal-i-Imtiaz, Sitara-i-Imtiaz</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Professional Memberships</h3>
+                <a href="#">American College of Gastroenterology</a>
+                <a href="#">World Gastroenterology Organisation</a>
+                <a href="#">Royal College of Physicians</a>
+                <a href="#">Pakistan Society of Gastroenterology</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p>Email: drumarpk@yahoo.com</p>
+                <p>Phone: 0333-5118283</p>
+                <p>Web: www.drumarpk.com</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">📧</a>
+                    <a href="#" class="social-link">🔗</a>
+                    <a href="#" class="social-link">📱</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Prof. Dr. Muhammad Umar. All rights reserved. | Designed with Excellence</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Page Loader
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('pageLoader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+            }, 1000);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Publications Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const publicationItems = document.querySelectorAll('.publication-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter publications
+                publicationItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form Handling
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            contactForm.reset();
+        });
+
+        // Animated Counter for Stats
+        const animateCounter = (element, target, duration) => {
+            let current = 0;
+            const increment = target / (duration / 16);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + '+';
+                }
+            }, 16);
+        };
+
+        // Trigger counters when stats section is visible
+        const statsSection = document.querySelector('.stats');
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let countersActivated = false;
+
+        const activateCounters = () => {
+            if (!countersActivated && statsSection) {
+                const rect = statsSection.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    countersActivated = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.textContent);
+                        animateCounter(stat, target, 2000);
+                    });
+                }
+            }
+        };
+
+        window.addEventListener('scroll', activateCounters);
+        activateCounters(); // Initial check
+    </script>
+</body>
+</html>
